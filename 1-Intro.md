@@ -66,7 +66,7 @@
 
 * Structure:
 
-  * I'm not entirely sure, but mostly will be based on last editions of Learning Python (Lutz) and Think Python (Allen B. Downey) — you might as well get these and flip through in free time
+  * I'm not entirely sure, but mostly will be based on last editions of Learning Python (Lutz) and Think Python (Allen B. Downey) — you might as well get these and flip through in free time. They're pretty easy to find both in paper or digitally. Get English version.
   * This is going to be learning experience for both parties — I'll be writing the course (and publishing the notes on GitHub) as we go
   * I'll try to find exercises for topics and publish them in group channel
   * Few lectures in we'll have first big task, and probably second most difficult one — come up with projects to finish before the end.
@@ -88,7 +88,8 @@
 
 ## Closing word
 
-* Python has great documentation, get used to it
+* Python has great [documentation](https://docs.python.org/3/), get used to it
+  * You might even find *why* it's called Python there
 * IDE of your choice:
   * PyCharm if you like swiss army knife approach
   * VSCode if you word «Electron» doesn't send shivers down your spine
@@ -100,9 +101,9 @@
   * Python was created as addition/replacement for Bash scripts to make small handy tools — you should do it too
   * Don't bite more than you can chew from the get go, but don't underestimate yourself — most likely you'll be able to do it with enough patience and persistence
   * Automate it!
-* Writing lectures is far more difficult that I imagined — I've been writing for almost two albums now with ideas being with me for a few days at least; and editor shows that I'm only at 913 words, which is about three minutes of reading
+* Writing lectures is far more difficult that I imagined — I've been writing for almost two albums (those would be Protomen — Father Of Death, Act II and Polkadot Cadaver — Last Calls in Jonestown) now with ideas being with me for a few days at least; and editor shows that I'm only at around thousand words, which is about three minutes of reading
 * Don't hesitate with questions and findings — we have (do we?) a channel just for that reason. Don't keep your problems and discoveries to yourself. Teamwork makes a dreamwork!
 
 ## Questions
 
-* Put them here
+* Language != programming
