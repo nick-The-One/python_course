@@ -14,3 +14,4 @@
     * No linting
 * Code is executed left to right top to bottom — like I told you on intro meeting
 * Optimization: precompile, JIT, profilers
+* Dev env: look into bandit 

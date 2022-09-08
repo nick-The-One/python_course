@@ -22,3 +22,11 @@
 * References and reference count
 * Variables: what are they and how to assign them
   * naming
+
+## OOP
+
+* What is OOP
+  * OOP vs Procedural vs Functional
+  * OOP features
+* Names mangling
+* Inheritance lookup

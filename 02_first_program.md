@@ -76,5 +76,5 @@
 [^2]: [Write own little PVM](https://stackoverflow.com/questions/61891199/does-python-virtual-machine-require-a-cpu-to-execute-the-bytecode)
 [^3]: [Programming terminology: Expression statements in Russian](https://russian.stackexchange.com/questions/7583/programming-terminology-expression-statements-in-russian)
 
-Albums listened to: Polkadot Cadaver - Purgatory Dance Party, El Creepo - Belissimo!, Hands — Give Me Rest
+Albums listened to: Polkadot Cadaver - Purgatory Dance Party, El Creepo - Belissimo!, Hands — Give Me Rest and half of Salt Of The Chief Cornerstone — Intelligent Design
 

@@ -57,7 +57,7 @@
 * For you:
 
   * You'll know Python a bit better than before
-  * You'll have project done if you through with it
+  * You'll have project done if you go through with it
   * You'll have something else to do aside from work and degrading with youtube
 
 * What's Nielsen's interest in it
@@ -98,6 +98,7 @@
   * PyCharm if you like swiss army knife approach
   * VSCode if you word «Electron» doesn't send shivers down your spine
   * Sublime or Notepad++ for now will work wonders
+  * JupyterLab/Notebooks
 * Terminal is good for you:
   * even windows one, although I'll recommend getting some ConEmu for it — conemu or tabby, with either WSL or at least GitBash
   * On \*NIX that's your first tool of choice, and any UI solution is second
