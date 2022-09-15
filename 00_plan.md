@@ -16,12 +16,46 @@
 
 ## Variables and types
 
-* Static typign vs. dynamic typing
+* Static typing vs. dynamic typing
+  * typing types (+ box examples?)
   * what is object and why does it matter (Lutz, 175)
-  * 
+  * type()
+
+* Mutable and immutable
+
 * References and reference count
+  * Comparison:
+    * == vs is
+      * -5 to 256 https://docs.python.org/3/c-api/long.html
+    * id()
+
+  * Garbage collection
+    * how often it runs
+    * cyclic references
+    * force
+
 * Variables: what are they and how to assign them
+  * what are variables vs const
   * naming
+    * Conventions
+
+  * assignement, referencing and re-assignement, multiple assignment, walrus?, unpacking, entire chapter 11
+
+* Numeric values
+  * Int
+  * float
+  * complex: fraction, decimal
+  * literals (Lutz, 134)
+
+* Lists
+
+  * cyclic reference `l = [1, 2]; l.append(l)`
+
+weakref?
+
+## Functions
+
+* Function stack frames https://web.archive.org/web/20220809063346/https://sites.cs.ucsb.edu/~pconrad/cs8/topics.beta/theStack/02/
 
 ## OOP
 
@@ -30,3 +64,4 @@
   * OOP features
 * Names mangling
 * Inheritance lookup
+* Name Mangling in sublasses

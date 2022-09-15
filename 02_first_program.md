@@ -9,9 +9,10 @@
   * computation — operations on data. Might be math, string operations or esoteric calculations of stars positions.
     * operators (*операция*) — [symbols](https://docs.python.org/release/2.5.2/ref/operators.html) that denotes that some computation should be done, including logical and comparison. E. g.: `+, -, and, >=`
     * expression (*выражения*) — «piece of code» that can be evaluated to some value. Contains operators, function call, literals, identifiers and attribute access — all of which return a value. `3 + 5, [x for x in range(5)], dis.dis(a)`
-    * statements (*оператор*)[^3] — block of code, that includes either expression, or something with keywords or assignments: `a = 1, print('Hi'), for i in range(5):, if a == 1:`
+    * statements (*оператор*)[^3] — block of code, that includes either expression, or something with keywords or assignments: `a = 1, print('Hi'), for i in range(5):, if a == 1:` **пример**
     * Don't mind it too much, but you just need to know that all of this exists.
   * Output — again, self explanatory. Result of the program execution
+* We will not be using translation, so forget about them
 
 ## How does Python runs a program
 
@@ -22,7 +23,7 @@
 
 * Bytecode translation and PVM
 
-  * Your code is being translated to bytecode — language that Python interpreter actually understands; it's also being saved to .pyc files — to speed up startup if code or Python version wasn't changed. Works only with write access — otherwise done in memory.
+  * Your code is being translated to bytecode — language that Python interpreter actually understands; it's also being saved to .pyc files — to speed up startup if code or Python version wasn't changed. Works only with write access — otherwise done in memory; and with imports (`python -m test`) — it is, strictly speaking, an import optimisation. **is this a compilations?** Yes **can you compile Python?** [maybe?](https://qr.ae/pvOejM) [^4]
 
   * Python Virtual Machine is what executes that bytecode by actually translating it even further to machine words. It's written in C (hence CPython), so it's pretty fast on it's own. There are other implementation — Jython (Java), IronPython (.NET), PyPy (Python), MicroPython, CircuitPython, PyCopy (targetting microcontrollers) and many more. Though you want to stick to CPython, at least for now — it's the standard, and when somebody says Python, they mean CPython.
 
@@ -46,20 +47,34 @@
 * Lot of authors will recommend using either web-based solutions, or IDLE — skip all these. You want to learn with either tool you're going to use, or something as close as possible. Learn to troubleshoot, use dev envirement and tooling efficiently.
   * web based interpreters limit you in imports (no 3rd party modules), you have no control over Python version and can't break anything to fix it later
   * I don't even know what IDLE is — it's been broken on macOS for a while and nobody bothered to fix it. Looks like barebones IDE, might as well use a notepad at that point
+  
 * **Show and tell!**
-* We'll start with CLI REPL — that would be enough for a while, and very handy for quick tasks or tests. You'll get used to have one instance running at all times eventually.
+
+* We'll start with CLI REPL (Read-Eval-Print Loop) — that would be enough for a while, and very handy for quick tasks or tests. You'll get used to have one instance running at all times eventually.
   * I've seen DB guys running SQL statements instead of calculator
   * CLI demo even if I've used it before
+  
 * Running a python script
   * Simplest way: `python file.py` or `python -m file`
     * `-m` denotes module and python will do all the usual module lookup, not just current folder
   * IDE most likely provide you with a button to run your script — it will execute something close to above command
   * More complex ways still boil down to same command, but employs things like entrypoints, main loops and even additional tools like Make, Docker and many more — we'll talk about them in due time.
+  
 * Esoteric ways to run code
-  * `eval()` — executes string as a code, but only one; returns None
-  * `exec()` — executes as many strings as a code as you want; returns result
+  * `eval()` — executes string as a code, but only one; returns result
+  
+  * `exec()` — executes as many strings as a code as you want; returns None
     * you can even use `compile()` to compile string to Abstract Syntax Tree object to pass to eval or exec, but let's not
+    
+    ```python
+    s = 'print("hello")'
+    sc = compile(source=s, filename='<string>', mode='single')
+    ```
+    
+    
+    
   * importing your script into another script, even empty one — why that works we'll learn way later
+  
   * frozen binaries — we don't it. But it's a way to bake (despite cold name) Python interpreter into executable
 
 ## Homework
@@ -75,6 +90,8 @@
 [^1]: [Look inside the PVM](https://leanpub.com/insidethepythonvirtualmachine/read)
 [^2]: [Write own little PVM](https://stackoverflow.com/questions/61891199/does-python-virtual-machine-require-a-cpu-to-execute-the-bytecode)
 [^3]: [Programming terminology: Expression statements in Russian](https://russian.stackexchange.com/questions/7583/programming-terminology-expression-statements-in-russian)
+
+[^4]: https://stackoverflow.com/questions/1957054/is-it-possible-to-compile-a-program-written-in-python
 
 Albums listened to: Polkadot Cadaver - Purgatory Dance Party, El Creepo - Belissimo!, Hands — Give Me Rest and half of Salt Of The Chief Cornerstone — Intelligent Design
 
