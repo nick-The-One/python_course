@@ -65,3 +65,8 @@ weakref?
 * Names mangling
 * Inheritance lookup
 * Name Mangling in sublasses
+* Search Order
+  * current object — class above from bottom to top, left to right (order of superclasses)
+  * search on reference only
+  * mro
+* operator overloading/interception

@@ -15,3 +15,5 @@
 * Code is executed left to right top to bottom — like I told you on intro meeting
 * Optimization: precompile, JIT, profilers
 * Dev env: look into bandit 
+* list comprehension https://betterprogramming.pub/python-list-comprehensions-are-more-powerful-than-you-might-think-3363a90e5bb0
+* dict methods etc https://medium.com/@dreamferus/python-dictionary-operations-you-should-know-bb91a77bd97a
