@@ -31,7 +31,7 @@ class TestClass:
 
 * Attributes are variables, bound to class namespace (class namespace is created by `class` keyword and includes everything inside class, but outside its methods — those are separate namespaces)
 
-  * Class attributes — attributes that are declared directly in class namespace. Will be shared between instances. Usually used to store class state, constants or defaults — instances count, for example **show**
+  * Class attributes — attributes that are declared directly in class namespace. Will be shared between instances. **ask** Usually used to store class state, constants or defaults — instances count, for example **show with different strings AND with re-creating same instance**
 
     ```python
     class TestC:

@@ -20,9 +20,7 @@
   * typing types (+ box examples?)
   * what is object and why does it matter (Lutz, 175)
   * type()
-
 * Mutable and immutable
-
 * References and reference count
   * Comparison:
     * == vs is
@@ -33,29 +31,43 @@
     * how often it runs
     * cyclic references
     * force
-
 * Variables: what are they and how to assign them
   * what are variables vs const
+  * assignement, referencing and re-assignement, 
   * naming
     * Conventions
-
-  * assignement, referencing and re-assignement, multiple assignment, walrus?, unpacking, entire chapter 11
-
+  * Hashability
 * Numeric values
+  * multiple assignment, walrus
   * Int
   * float
   * complex: fraction, decimal
   * literals (Lutz, 134)
 
-* Lists
+* Strings
+  * f-strings support `=` for self-documenting expressions and debugging
 
+* Bool
+* walrus?, unpacking, entire chapter 11
+* Lists
+  * Sets
   * cyclic reference `l = [1, 2]; l.append(l)`
+  * copy, deepcopy
+
+* Dicts
+  * Dictionary Merge & Update Operators (3.9+)
+
 
 weakref?
+
+* flow control
+  * case (3.10+)
 
 ## Functions
 
 * Function stack frames https://web.archive.org/web/20220809063346/https://sites.cs.ucsb.edu/~pconrad/cs8/topics.beta/theStack/02/
+* Positional-only parameters
+* unpacking and its order:  https://docs.python.org/3/reference/expressions.html#calls
 
 ## OOP
 
