@@ -93,7 +93,7 @@
   pi = 3.14159265359
   print("%.2f" % pi)
   print("{:.2f}".format(pi))
-  print(f'{pi:.2f}')
+  import ma
   ```
 
   But that's topic for strings discussion.
