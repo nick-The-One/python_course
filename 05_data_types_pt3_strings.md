@@ -19,7 +19,7 @@
 
 * Unlike some other languages, Python does not have concept of a char type, only string. **show** String would be everything between two quotation marks — all the symbols. If you need a single character — just create a string with a single character in it.
 
-  * Strings, as we mentioned before, are immutable — there's no way to change them in place. Every time you seemingly altered the string without reassigning it to the new variable, the new string was actually created and referenced. **ask** This also makes trings hashable.
+  * Strings, as we mentioned before, are immutable — there's no way to change them in place. Every time you seemingly altered the string without reassigning it to the new variable, the new string was actually created and referenced. **ask** This also makes strings hashable.
     * **show** We can't change even smallest part of the string `'lemon'[1] = 'i'`
   * Python does not care about what type of quotation marks are enclosing the string as long as they are **show**:
     * one of these: `" or '`
@@ -28,6 +28,7 @@
   * **show** What if you adamant about using, say, double quotes and your string contains a quote? `""What, you egg!" - W. Shakespeare"` -> `"\"What, you egg!\" - W. Shakespeare"`
     * Same goes for some other characters including `\n` and personal favorite **show**  `\a`
   * **show** Most of the special symbols in repl output symbols are escaped, but not in print
+  * **print**
   * **show** What if our string is really long, entire paragraph? Putting newline both in REPL or script file would mean an end of the line for interpreter and will break something
     * If it has no newlines, jsut go with `\`
       * `\` allows you to split almost any Python line between lines — very handy for staying under PEP limit for line length
@@ -62,6 +63,8 @@
     # new self-documenting expressions, introduced in 3.8
     sd_var = f'this is combined string; {int_var=}; {fl_var=}; {str_var=}'
     ```
+
+  * These different types of strings can be combined: `fr` etc.
 
 * `format` is very powerful tool to format strings any way you want. It is so powerful that it features its own mini-language for formatting[^5]. I wouldn't spend much time on it, but give you a link to a documentation and show a few examples **show**
 
@@ -110,4 +113,4 @@
 [^2]: https://unicode-table.com/en/1F6B3/
 [^3]: [Python string escape characters](https://python-reference.readthedocs.io/en/latest/docs/str/escapes.html)
 [^4]: https://www.johndcook.com/blog/2022/05/28/how-to-memorize-the-ascii-table/
-[^5]: [String formatting lanuage](https://docs.python.org/3/library/string.html#formatspec)
+[^5]: [String formatting language](https://docs.python.org/3/library/string.html#formatspec)
