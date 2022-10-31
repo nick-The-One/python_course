@@ -11,7 +11,7 @@
 
 ## List theory
 
-* Main differences between lsit and string are already described above, but let us still use this them both to see what lists are
+* Main differences between list and string are already described above, but let us still use this them both to see what lists are
 
   * Both string and list are collection of objects, that much is common
 
@@ -39,7 +39,7 @@
 
     * **ask** Max size of the list in python is defined by your system
 
-      * **show** 
+      * **show** st1
 
         ```python
         import sys
@@ -53,7 +53,7 @@
 
     * List can even include itself as own member **ask** in that case it would be deleted from memory when all other objects that reference it are not doing it anymore
     * From what I can gather there are no limits on nesting depth
-    * While lists being mutable are double-edged sword, nested lists are double edeged sword with hilt made out of blades
+    * While lists being mutable are double-edged sword, nested lists are double edged sword with hilt made out of blades
 
 ## Lists hands-on
 
@@ -81,7 +81,7 @@
       l1 = [1, 2, 3]
       id(l1)
       l1 += [4]
-      id(l2)
+      id(l1)
       ```
 
     * **show** Unlike strings again, values of list can be reassigned in-place:
@@ -178,6 +178,6 @@
 
     ## Homework
 
-    * Take your favourite short literary work (< 1000 words), *split* it into list (don't do it manually, there's a built-in way to do it), and get every 2, 3 ... nth word from it until you couldn't get what the story was about. Write down the threshold. be proud of it.
+    * Take your favourite short literary work (< 1000 words), *split* it into list (don't do it manually, there's a built-in way to do it), and get every 2, 3 ... nth word from it until you couldn't get what the story was about. Write down the threshold. Be proud of it.
 
 [^1]:[cpython implementation of sort](https://docs.python.org/3/library/stdtypes.html#list)

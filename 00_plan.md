@@ -50,7 +50,6 @@
   * multiline strings
   * `string` module
   * f-strings support `=` for self-documenting expressions and debugging https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings
-
 * Bool
 * walrus?, unpacking, entire chapter 11
 * https://developers.google.com/edu/python/strings
@@ -59,8 +58,7 @@
   * copy, deepcopy
 * Dicts
   * Dictionary Merge & Update Operators (3.9+)
-* Rest: sets, tuples, collections?
-* Comprehensions
+* Rest: sets, tuples, collections? + Comprehensions
 
 
 weakref?

@@ -148,17 +148,6 @@ class TestClass:
 
 * Good news: you might as well forget about mangling completely now and everything would still be fine in your life.
 
-## Inheritance
-
-* Inheritance is a mechanism that allows one class to, well, inherit attributes and methods from other. Of course implicitely.
-  * This allows you to rewrite logic of classes without copy-pasting the code: just change attributes/methods that need it
-
-* Basic syntax is very simple: you use brackets with `class` and pass all parent classes as arguments — note that I said arguments, not argument. Multiple inheritance is possible.
-* You can (and in case of `__init__`) most likely should access superclass methods by either `SuperClass.method(self)` or `super().method()` 
-* Most important part to keep in mind about inheritance: attributes/methods in child classes overwrite same attributes/methods in parent classes for that scope.
-
-* We'll go over search order and method resolution order (MRO) next time
-
 [^1]: [Class attributes time save](https://www.toptal.com/python/python-class-attributes-an-overly-thorough-guide)
 [^2]: [Class internals](https://rushter.com/blog/python-class-internals/)
 [^3]: [Private variables](https://docs.python.org/3/tutorial/classes.html#private-variables)
