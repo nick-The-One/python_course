@@ -58,19 +58,36 @@
   * copy, deepcopy
 * Dicts
   * Dictionary Merge & Update Operators (3.9+)
-* Rest: sets, tuples, collections? + Comprehensions
+* Rest: sets, tuples, collections?
+* Files
+
+## Files
+
+* Files are it's own entire beast, so complex and elaborate that there are entire file systems (note plural!), and do they bring headache
+  * Try to write something on NTFS drive with mac
+  * Try to do anything with ext partition with windows
+  * boot anything from non-FAT drive
+  * And many, many more such cases
+* Taking that in consideration, let's look at most basic Python operations connected to files: open, read, write and close
+* Open is self-explanatory
 
 
 weakref?
 
 * flow control
   * case (3.10+)
+* Loops
+* Iterators — here or after functions basics? Need to think about it
+* Comprehension
 
 ## Functions
 
 * Function stack frames https://web.archive.org/web/20220809063346/https://sites.cs.ucsb.edu/~pconrad/cs8/topics.beta/theStack/02/
 * Positional-only parameters
 * unpacking and its order:  https://docs.python.org/3/reference/expressions.html#calls
+  * entire chapter 11
+
+* Generators 
 
 ## OOP
 

@@ -12,6 +12,14 @@
     * Don't use proper distribution for in-house modules
     * Ran test «at least once a year»
     * No linting
+  * Documenting things
+    * comments
+    * docstrings
+      * google
+      * that other one format
+    * sphinx
+    * doctest
+    * give everyone a piece of code (func/class) and make them document it
 * Code is executed left to right top to bottom — like I told you on intro meeting
 * Optimization: precompile, JIT, profilers
 * Dev env: look into bandit 

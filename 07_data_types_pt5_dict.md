@@ -10,7 +10,7 @@
   * `O(n)` (linear time) happens when you need to check every single item in the input for algorithm to work: say, printing every item in the list
   * `O(n^2)` (quadratic time) would be a case if you need to find all possible pairs in a list
   * Only most significant part of complexity is used — `O(n²-n)` (quadratic algorithm where last iteration is dropped) would still be `O(n²)` since `n` is insignificant compared to `n²` 
-  * There're a few more, you can look them up. Here's a shot summary of how bad things can get[^1][^2]:
+  * There're a few more, you can look them up. Here's a shot summary of how bad things can get[^1][^2][^3]:
     ![](./img/big_o_comp.jpeg)
 * Let's remember lists and apply newfound complexity knowledge to them:
   * looking up element by index would be **ask** `O(1)` operation — indexes are ordered and sequential
