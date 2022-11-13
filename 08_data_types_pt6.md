@@ -6,7 +6,7 @@
 
 * Set is a term that comes from math and means about as what you would expect: several values in a single container
   * Word «container» might give you some ideas about categories in which sets fall in: they are containers, they are iterable and they are mutable
-  * Now, what differenties them from lists in this case **ask**: they're actually hash maps under the hood, and in as with it is a case with proper hash maps it does not allow for duplicate values — duplicate keys, to be precise, but since keys are derived from values, this is the same thing
+  * Now, what differentiates them from lists in this case **ask**: they're actually hash maps under the hood, and in as with it is a case with proper hash maps it does not allow for duplicate values — duplicate keys, to be precise, but since keys are derived from values, this is the same thing
   * This means that items in sets must be hashable, thus immutable
   * Other difference is that sets are unordered: retrieve order isn't guaranteed
   * All of the time complexity is shared with hash maps
@@ -93,7 +93,7 @@
 
   * It's worth noting that both of these functions, being built-ins, are written in C and thus pretty fast[^5]
 
-* Comprehensions, as the name *might* suggest are might be easier to understand than for loop — although not always; but it name means not what you might think it means — it's not «reading comprehension» comprehension, it's «set comprehension» comprehension, aka «set builder notation» or «complete inclusion»
+* Comprehensions, as the name *might* suggest are might be easier to understand than for loop — although not always; but it name means not what you might think it means — it's not «reading comprehension» comprehension, it's «set comprehension» comprehension, aka «set builder notation» or «complete inclusion»[^6]
 
 * Aside from map and filter we also need *source* for comprehension — it should iterator, but for now for simplicity sake let's go with sequenced container — it can be iterator, and that's enough for us today
 
@@ -153,9 +153,9 @@
   res_c = (conv_val * 10 if (conv_val := int(val) & 1) else -1 for val in src)
   ```
 
-  * That's for another times, let be a mistery for now
+  * That's for another time, let be a mystery for now
 
-* Dict comprehension looks very similar to set, but now you need to supply both key and value — so you either need source that returns pairs, or map something to key to get value. We'll go with later and use original value as key and our converted (tenfold for odd, -1 for even) as value:
+* Dict comprehension looks very similar to set, but now you need to supply both key and value — so you either need source that returns pairs, or map something to the key to get value. We'll go with later and use original value as key and our converted (tenfold for odd, -1 for even) as value:
   ```python
   res = {}
   src = '12345'
@@ -185,4 +185,4 @@
 [^4]: [collections](https://docs.python.org/3/library/collections.html)
 
 [^5]: [maps](https://wiki.python.org/moin/PythonSpeed/PerformanceTips#Loops)
-
+[^6]: [Set builder notation](https://en.wikipedia.org/wiki/Set-builder_notation)
