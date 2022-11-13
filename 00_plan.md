@@ -102,3 +102,7 @@ weakref?
   * search on reference only
   * mro
 * operator overloading/interception
+
+## Rest
+
+* Built-ins cleanup: go through each and every built-in function

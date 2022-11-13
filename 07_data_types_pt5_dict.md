@@ -58,7 +58,7 @@
   * `dict[key] = value` — since it's mutable type, this is possible, quite similar to list
   * `dict.update()`
     * `dict.update(other_dict)` including constructors
-    * `dict.update(key1=value, key2=value)`
+    * `dict.update(key1='value', key2='value')` — key should be Python identifier, not string
     * `dict.update([(1, 'a'), (2, 'b'), (3, 'c')])`
     * All values will be overwritten on duplicate keys
 * Removing values is simple: `dict.pop(key, [default])`. Returns value if key is present, `None` or `default` if not
