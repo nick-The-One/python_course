@@ -5,6 +5,8 @@
   * You can't plan your own project
   * Fair projects distribution by authors
 * Use these as git submodule for website?
+* go over walrus and case match
+* https://github.com/Asabeneh/30-Days-Of-Python
 * [Standart library](https://www.youtube.com/watch?v=ypApmOoCRSc)
 * Engineering culture:
   * Interview with engineer from another company

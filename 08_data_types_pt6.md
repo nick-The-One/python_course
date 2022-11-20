@@ -1,5 +1,15 @@
 # Data types, part 6: The Rest
 
+## Tuples
+
+* Tuples is almost the same as the list, but immutable. That's the main difference
+* This allow you to use complex values as keys **show**
+* Bit faster — due to some compiler optimisation, less abstraction layers between them and actual objects and fixed size allows to allocate memory more efficiently[^2]
+* Tuples also default data type for multiple assignments (as we already know) and function arguments — we'll se it later
+* Creating tuple: `tuple(iter)`, `(1, 2 ... n)` or even `var = 1, 2, ... n`; although be careful with last method — it doesn't work everywhere
+  * If you want to create tuple with the size of 1, don't forget about trailing coma **show** `t = (1)`
+* Tuples implement all of common sequence operators[^3] save for add and update operators
+
 ## Sets
 
 * One of the types that we skipped in numerical variables discussion that we really shouldn't have is set
@@ -46,16 +56,6 @@
   * The rest is available at docs[^1]
   
 * Main use for sets is making sure your list has unique elements
-
-## Tuples
-
-* Tuples is almost the same as the list, but immutable. That's the main difference
-* This allow you to use complex values as keys **show**
-* Bit faster — due to some compiler optimization, less abstraction layers between them and actual objects and fixed size allows to allocate memory more efficiently[^2]
-* Tuples also default data type for multiple assignments (as we already know) and function arguments — we'll se it later
-* Creating tuple: `tuple(iter)`, `(1, 2 ... n)` or even `var = 1, 2, ... n`; although be careful with last method — it doesn't work everywhere
-  * If you want to create tuple with the size of 1, don't forget about trailing coma **show** `t = (1)`
-* Tuples implement all of common sequence operators[^3] save for add and update operators
 
 ## More containers
 
@@ -145,12 +145,12 @@
     else:
       res.add(-1)
       
-  res_c = {conv_val * 10 if (conv_val := int(val) & 1) else -1 for val in src}
+  res_c = {int(val) * 10 if (int(val) & 1) else -1 for val in src}
   ```
 
 * Tuple comprehension isn't a thing, but any ideas what this'll do?
   ```python
-  res_c = (conv_val * 10 if (conv_val := int(val) & 1) else -1 for val in src)
+  res_c = (int(val) * 10 if (int(val) & 1) else -1 for val in src)
   ```
 
   * That's for another time, let be a mystery for now

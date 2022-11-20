@@ -94,14 +94,15 @@ weakref?
 * What is OOP
   * OOP vs Procedural vs Functional
   * OOP features
-* Names mangling
+* How to make a class
+* Dataclasses
 * Inheritance lookup
-* Name Mangling in sublasses
 * Search Order
   * current object — class above from bottom to top, left to right (order of superclasses)
   * search on reference only
   * mro
 * operator overloading/interception
+* Names mangling, Name Mangling in sublasses
 
 ## Rest
 
