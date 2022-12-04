@@ -12,6 +12,8 @@
 
   * Any non-empty container type will be cast to `True`, including list with a single empty list as member; any empty one — to `False` — if `lens` returns zero, container is false
 
+  * `None` will always cast to `False`
+
   * Functions (not their results) and methods will be cast to `True`
 
   * Classes will be cast to `True`. Class instances will be too, but you can change this behaviour be defining either `__bool__` method, or its fallback `__len__`
@@ -60,7 +62,7 @@
 
   * This logic is called «short-circuit evaluation»
 
-  * For combined operators this logic is still applies on left-to-right basis:
+  * For combined operators this logic is still applies on left-to-right basis with respect to precedense:
     ```python
     0 or 1 and 1
     0 or 0 and 1

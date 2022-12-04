@@ -11,6 +11,7 @@
 ## First program
 
 * What's a program
+* Writing first Python program – var, loop, if-else
 * How Python runs code
 * How to run Python code
 
@@ -106,4 +107,4 @@ weakref?
 
 ## Rest
 
-* Built-ins cleanup: go through each and every built-in function
+* Built-ins cleanup: go through each and every built-in function: https://docs.python.org/3/library/functions.html
