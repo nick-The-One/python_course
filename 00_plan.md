@@ -11,7 +11,7 @@
 ## First program
 
 * What's a program
-* Writing first Python program – var, loop, if-else
+* Writing first Python program – var, loop, if-else, function class
 * How Python runs code
 * How to run Python code
 

@@ -18,7 +18,7 @@
   * while — do loops, or cycles with pre-condition, i.e. condition is checked *before* cycle execution…
   * …and do — while loops, or post-condition cycles, where body is executed before condition check (thus making sure that body would be executed at least once regardless)
 
-* Python features only two of them — for loop and while loop, no pre-condition loops for you out of the box, although you can make do with while and break statement — we'll see it later
+* Python features only two of them — for loop and while loop, no post-condition loops for you out of the box, although you can make do with while and break statement — we'll see it later
 
 * Let's start with while loop, since it's a bit simpler:
   ```python
@@ -178,7 +178,7 @@
       ```python
       iter_dict = {1: 'one', 2: 'two', 3: 'three'}
       for k,v in iter_dict.items():
-        print(f'{k=}, {v=})
+        print(f'{k=}, {v=}')
       ```
 
       Although multiple assignment is not required if you don't want to:
