@@ -1,4 +1,4 @@
-# Files & Iterators
+# Iterators & Files
 
 ## Iterators
 
@@ -33,7 +33,7 @@
 
   * Iteration protocol — set of features object has to implement to be considered iterator. This includes only two things: `__next__` method that would be called by `next` function in iteration context and returns next member in collection; and it raises `StopIteration` exception when collection is exhausted
 
-  * Iteration context — tool, that uses iterator in some way by calling `next` repeatedly until `StopIteration` is encountered: `for` loop, comprehensions etc
+  * Iteration context — tool, that uses iterator in some way by calling `__iter__ ` to get iterator, and then `next` repeatedly until `StopIteration` is encountered: `for` loop, comprehensions etc
 
 * Let's try to sum all of this:
 
@@ -185,7 +185,7 @@
 * By the next week you need to have general idea of what you want your project to be
 * You can come up with as many as you want, the more — the better
 * Here's the kicker — you are not the person who would be making it
-* And next week assigment will be aimed at finding an owner for every project
+* And next week assignment will be aimed at finding an owner for every project
 
   
 
