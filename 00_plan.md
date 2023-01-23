@@ -88,6 +88,13 @@ weakref?
 * unpacking and its order:  https://docs.python.org/3/reference/expressions.html#calls
   * entire chapter 11
 
+* Arguments:
+  * default
+  * named/positional
+  * args/kwargs
+  * packing/unpacking (530)
+  * \* (539)
+* Annotations (565)
 * Generators 
 
 ## OOP

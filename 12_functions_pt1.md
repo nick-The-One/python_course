@@ -159,12 +159,14 @@
 
 * You need to write a small script that, given a list of tuples `project:author` and list of names outputs list of dictionaries like this:
   ```json
-  {
-    'project': 'name',
-    'author': 'name',
-    'manager': 'name',
-    'developer': 'name'
-  }
+  [
+    {
+    	'project': 'name',
+  	  'author': 'name',
+  	  'manager': 'name',
+  	  'developer': 'name'
+  	},
+  ]
   ```
 
 * Rules: 
@@ -174,3 +176,8 @@
   * each person has to manage exactly one project
   * each person has to develop exactly one project
   * if somebody brings ideas for more than one project they should be used after everyone else's ideas are assigned — i.e. first we distribute one idea from person, and after that if we still have more developers without a project, we use more ideas from same person
+
+* Additional tasks:
+
+  * Make sure code adheres to PEP8 and linting standards
+  * Make sure code is covered with test cases
