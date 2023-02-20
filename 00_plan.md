@@ -96,6 +96,7 @@ weakref?
   * \* (539)
 * Annotations (565)
 * Generators 
+* Docstrings
 
 ## OOP
 

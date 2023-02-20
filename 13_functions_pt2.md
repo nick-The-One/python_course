@@ -15,7 +15,7 @@
 
   *  to assign functions to variables
     ```python
-    def f() --> None:
+    def f() -> None:
       print('a')
     f()
     a = f
@@ -24,10 +24,10 @@
 
   * to keep them in containers
     ```python
-    def f() --> None:
+    def f() -> None:
       print('f')
     
-    def g() --> None:
+    def g() -> None:
       print('g')
     
     d = {'f': f, 'g': g}
@@ -38,10 +38,10 @@
     ```python
     from typing import Callable
     
-    def f(a: int) --> int:
+    def f(a: int) -> int:
       return a * 2
     
-    def g(a: int, b: Callable[[int], int]) --> int:
+    def g(a: int, b: Callable[[int], int]) -> int:
       return b(a)
     
     g(2, f)
@@ -50,7 +50,7 @@
   * and give them attributes:
 
     ```python
-    def f() --> None:
+    def f() -> None:
       pass
     
     f.x = 1
@@ -88,7 +88,7 @@
 * There are four main scopes in Python: built-in, global, local and enclosing
   ![legb](/Users/noni1001/Projects/PLC/lectures/img/legb.png)
 
-* Built-in is the «biggest» scope (not by amount of objects in it, but by accessbility — everything has access to it)
+* Built-ins is the «biggest» scope (not by amount of objects in it, but by accessibility — everything has access to it)
 
   * It's created with start of Python interpreter every time script is executed/interactive session started
 
@@ -148,9 +148,9 @@
 
     * Enclosing scope is a scope of a function, that encloses original function; easier to explained with example:
       ```python
-      def enclosing_function() --> None:
+      def enclosing_function() -> None:
         enclosing_scope_var = 1
-        def enclosed_function() --> None:
+        def enclosed_function() -> None:
           local_scope_var = enclosing_scope_var + 1
       ```
 
@@ -161,9 +161,9 @@
   * And last resort is **B**uilt-ins scope
     ```python
     global_var = 1
-    def enclosing_func() --> None:
+    def enclosing_func() -> None:
       enclosing_var = 2
-      def internal_func() --> None:
+      def internal_func() -> None:
         local_var = 3
         print(local_var)  # local scope
         print(enclosing_var)  # enclosing scope
@@ -171,12 +171,12 @@
         print(int('1'))  # built-ins scope
     ```
 
-  * Scope lookup is one-way only: only current and above current one scopes are accessible for lookup, but not other way around: global scope can't access function's variables
+  * Scope lookup is one-way only: only current and above current one scopes are accessible for lookup, but not other way around: global scope can't access function's variables. Search is lazy and stops after first found object
 
   * Normally objects from other scopes are read-only: function can use value from global scope, but not change it
     ```python
     a = 1
-    def func() --> None:
+    def func() -> None:
       print(a)  # reads from global scope
       a = 2  # creates new object in local scope
       print(a)
@@ -188,7 +188,7 @@
     * For writing to global from inside the function keyword `global` should be used:
       ```python
       a = 1
-      def func() --> None:
+      def func() -> None:
         print(a)  # reads from global scope
         global a
         a = 2  # modifies global object
@@ -198,9 +198,9 @@
 
     * For writing to enclosing function keyword `nonlocal` should be used:
       ```python
-      def func_enc() --> None:
+      def func_enc() -> None:
         a = 1
-        def func() --> None:
+        def func() -> None:
           print(a)  # reads from enclosing scope
           nonlocal a
           a = 2  # modifies enclosing object
