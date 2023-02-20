@@ -14,7 +14,22 @@
 
 ## Arguments
 
-* Functions are good, but not so useful without ability to pass some data to them as input data
+* Functions are good, but not so useful without ability to pass some data to them as input data and receive output
+
+* Returning data is simple with `return`, to which there are three points:
+
+  * `return` will end function execution and pass whatever values come after it to the caller
+
+  * No `return` means function will be returning `None` on exit
+
+  * Multiple values returns are possible with coma: they will be packed into one tuple and returned that way
+    ```python
+    def multiple_returns(a: int, b: int) -> Tuple[Int]:
+      sum = a + b
+      mul = a * b
+    ```
+
+    
 
 * Mechanism for accepting data into function is arguments
 
