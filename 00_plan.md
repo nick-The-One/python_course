@@ -97,6 +97,15 @@ weakref?
 * Annotations (565)
 * Generators 
 * Docstrings
+* lambdas
+* functional tools:
+  * map
+  * filter
+  * reduce
+  * functools
+* annotations?
+
+* docstring
 
 ## OOP
 

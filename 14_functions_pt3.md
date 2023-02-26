@@ -9,7 +9,8 @@
 * If function calls another function before exiting, new frame is created and put onto LIFO call stack
 * After new frame is created, code execution «jumps» to it, executes it entirely if possible, deletes the frame and then returns to caller
 * Since the stack is LIFO, last called function will be [executed first](https://web.archive.org/web/20220809063346/https://sites.cs.ucsb.edu/~pconrad/cs8/topics.beta/theStack/02/)
-* You can inspect frame objects (and they are objects like everything else) using [Limited C API](https://docs.python.org/3/c-api/frame.html) and get interesing things there: code, locals or even code line
+* Depth of stack is `sys.getrecursionlimit` (~1000)
+* You can inspect frame objects (and they are objects like everything else) using [Limited C API](https://docs.python.org/3/c-api/frame.html) and get interesting things there: code, locals or even code line
 * This goes very deep into metaprogramming so we will leave it there[^1][^2]
 
 ## Arguments
@@ -27,6 +28,7 @@
     def multiple_returns(a: int, b: int) -> Tuple[Int]:
       sum = a + b
       mul = a * b
+      return sum, mul
     ```
 
     
@@ -67,7 +69,7 @@
     	# funtion body continues
     ```
 
-* If your data is not mutable or you're not going to change it — function call will not cause any problems even if varibale names are *shadowed* — are the same in global in local scopes thanks to context isolation
+* If your data is not mutable or you're not going to change it — function call will not cause any problems even if variable names are *shadowed* — are the same in global in local scopes thanks to context isolation
 
 * Now to how Python actually handles arguments
   ```python
