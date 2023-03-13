@@ -104,8 +104,7 @@ weakref?
   * reduce
   * functools
 * annotations?
-
-* docstring
+* Decorators
 
 ## OOP
 

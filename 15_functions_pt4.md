@@ -4,7 +4,7 @@
 
 * Regular functions are single-run: once they reach `return` statement or end of itself, they'll return value(s) or `None` and that'll be it: frame is deleted from stack, state removed and new call will produce new frame
 
-* But there's a way to *generate* multiple returns from a single function with state being saved between calls: generator functions, or just generators
+* But there's a way to *generate* multiple returns from a single function call with state being saved between calls: generator functions, or just generators
 
 * For now I will use generator and generator function interchangeably, but there's also generator comprehension, so just keep that in mind for now
 
@@ -23,7 +23,7 @@
     return [x for x in range(n)]
   
   # generator function, returns each value from range in iterative fashion
-  def func_b(n: int) -> Iterator[int]:
+  def func_b(n: int) -> Iterable[int]:
     for x in range(n):
       yield x
       
@@ -45,12 +45,12 @@
 
   ```python
   # this will generate all value in range:
-  def gen_a(n: int) -> Iterator[int]:
+  def gen_a(n: int) -> Iterable[int]:
     for i in range(1, n):
       yield(i)
       
   # this will stop iteration at first value that iss divisble by 3
-  def gen_b(n: int) -> iterator[int]:
+  def gen_b(n: int) -> Iterable[int]:
     for i in range(1, n):
       yield(i)
       # execution resumes from here on the next call
@@ -60,7 +60,7 @@
 
 * …or you can have multiple `yield` statements, since they are not interrupting execution, but simply pausing it:
   ```python
-  def multiple_yilds() -> Iterator[string]:
+  def multiple_yields() -> Iterator[str]:
     yield 'string 1'
     yield 'string 2'
     yield 'string 3'
@@ -223,5 +223,4 @@
     
 
 [^1]: [Yield from](https://stackoverflow.com/questions/9708902/in-practice-what-are-the-main-uses-for-the-yield-from-syntax-in-python-3-3)
-
 [^2]: [Realpython: generators](https://realpython.com/introduction-to-python-generators/)
