@@ -46,8 +46,8 @@
       ```python
       class A:
         def __init__(self):
-          __x = 1
-          y = 2
+          self.__x = 1
+          self.y = 2
         
         def __func_private(self, a):
           return self.__x + 1

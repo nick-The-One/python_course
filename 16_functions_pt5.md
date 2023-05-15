@@ -4,7 +4,7 @@
 
 * First — just a definition, to get a subject to talk about
 
-* Lambda in Python is a anonymous function
+* Lambda in Python is an anonymous function
 
 * Just like in that America's song — just a function with no name; remember this thought — we will be checking it's truthfulness later with `dis` 
 
@@ -32,6 +32,7 @@
 
 * As you can see, syntax for defining lambdas quite differs from regular functions:
 
+  * keyword `lambda`
   * no name, obviously
   * argument isn't enclosed in brackets
   * no `return` statement
@@ -99,8 +100,6 @@
     ```python
     (lambda x, y: x + y)(1, 2)
     ```
-
-    
 
   * body of lambda is a single expression — can't use `for` for example inside of it
 
@@ -175,7 +174,7 @@
     [(lambda x: str(int(x) + 1))(i) for i in list_a]
     ```
 
-  * This is a rabbithole that goes deep into nightmare land: [read at own discretion](https://stackoverflow.com/a/34021333/7415427)
+  * This is a rabbit hole that goes deep into nightmare land: [read at own discretion](https://stackoverflow.com/a/34021333/7415427)
 
   * [Test on lambdas](https://realpython.com/quizzes/python-lambda/)
 
@@ -186,8 +185,10 @@
 * First one is a `map`, built-in that *maps* given function over every member of iterable — essentially a generator that returns result of a function for every value in an iterable:
   ```python
   ts = 'he wore a hat and brought home the bacon'
+  def upper_but_bad(s: str) -> str:
+  	return s[0].upper()
   # map returns an iterable, so we need to do something with it to make visible
-  ''.join(map(str.upper, ts))
+  ''.join(map(upper_but_bad, ts))
   ```
 
   * note that we do not call the function, but rather pass the function object
@@ -238,7 +239,7 @@
   def sum_func(a: int, b: int) -> int:
     return a + b
   
-  def sum_func_2 = partial(sum_func, b=2)  # pass function object and all args you wish add defaults to
+  sum_func_2 = partial(sum_func, b=2)  # pass function object and all args you wish add defaults to
   sum_func_2(1)
   ```
 

@@ -118,8 +118,9 @@ weakref?
   * current object — class above from bottom to top, left to right (order of superclasses)
   * search on reference only
   * mro
-* operator overloading/interception
 * Names mangling, Name Mangling in sublasses
+* operator overloading/interception
+* metaclasses
 
 ## Rest
 

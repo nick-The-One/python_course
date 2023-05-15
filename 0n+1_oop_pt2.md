@@ -25,13 +25,15 @@ class TestClass:
 * Class — object, denoted by the keyword `class`. It is a template, fabricator of instances — creates new instance when called
 
   * all code inside class is getting executed once `class` reached in execution, kind of like with module imports
-  * all class-level attributes are shared between instances
-
+  
 * Instance — object, created in image of the class, has all attributes and methods of the class available to it
 
 * Attributes are variables, bound to class namespace (class namespace is created by `class` keyword and includes everything inside class, but outside its methods — those are separate namespaces)
 
   * Class attributes — attributes that are declared directly in class namespace. Will be shared between instances. **ask** Usually used to store class state, constants or defaults — instances count, for example **show with different strings AND with re-creating same instance**
+
+    * all class-level attributes are shared between instances
+
 
     ```python
     class TestC:
@@ -39,7 +41,7 @@ class TestClass:
         def __init__(self):
             TestC.instance_count += 1
     ```
-
+    
     * can save you a nick of time — class attributes are only created once[^1]
 
   * all attributes, denoted with `self.` are instance-specific and aren't shared between instances — different namespace for each and every instance
@@ -91,62 +93,6 @@ class TestClass:
   * static methods — methods, not bound to the instance, but rather class. Can be called from class object (any method). **ask & show** Can be called from instances if decorated with `@staticmethod` or registered with `Class.func_a = staticmethod(func_a)` to avoid implicitely passing instance object. Don't have access to instance attributes, obviously.
 
   * LEGB does not work the way you think it should work — class attributes are not accessible from methods directly, but we know at least two ways to make it work
-
-## Name mangling interlude
-
-* Consider the following **ask every step**:
-
-  * Parent class has a method that runs on init
-  * Child class doesn't overwrite init and expected to have same method called on its init
-  * Child class has a method named the same as on-init parent method
-  * Parent class must still be able to use its on-init method
-
-* You remember name mangling — way to «privatise» attributes in classes? This is a bit counter-Pythonic, but might be useful still
-
-  ```python
-  # child inits incorrectly, parent method accessible
-  class Test:
-    def __init__(self, a):
-      self.post(a)
-     
-    def post(self, x):
-      print(f'proper {x}')
-    
-  class TestChild(Test):
-    def post(self, x):
-      print(f'child {x}')
-  
-  # child inits correctly, parent method inaccessible
-  class TestFixed:
-    def __init__(self, a):
-      self.__post(a)
-     
-    def __post(self, x):
-      print(f'proper {x}')
-     
-    
-  class TestChildFixed(TestFixed):
-    def post(self, x):
-      print(f'child {x}')
-  
-  # fully solved
-  class TestFixedFixed:
-    def __init__(self, a):
-      self.__post(a)
-     
-    def __post(self, x):
-      print(f'proper {x}')
-     
-    post = __post
-    
-  class TestChildFixedFixed(TestFixedFixed):
-    def post(self, x):
-      print(f'child {x}')
-  ```
-
-* This is the only valid use for mangling I found/could come up with; except for straight up hiding attributes [^3]
-
-* Good news: you might as well forget about mangling completely now and everything would still be fine in your life.
 
 [^1]: [Class attributes time save](https://www.toptal.com/python/python-class-attributes-an-overly-thorough-guide)
 [^2]: [Class internals](https://rushter.com/blog/python-class-internals/)
