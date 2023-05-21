@@ -120,7 +120,11 @@ weakref?
   * mro
 * Names mangling, Name Mangling in sublasses
 * operator overloading/interception
-* metaclasses
+  * @property @setter
+  * Descriptors
+
+* Metaclasses
+* slots
 
 ## Rest
 

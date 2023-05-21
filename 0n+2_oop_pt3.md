@@ -11,7 +11,7 @@
           self.a = a
   ```
 
-* This was planned to be included into Python 3.10 as default, but was postponed
+* This was planned to be included into Python 3.10 as default, but was postponed[^2]
 
 * It postpones evaluation of annotations, so undefined yet types will be represented by strings
 
@@ -42,6 +42,8 @@
 
 * All of the methods (including init) and attributes are inherited and will be available, unless overwritten
 
+* Overwriting — is **???**
+
 * All of the classes, except for Exception classes, inherit from `object` class implicitely. Exception classes should be inherited (explicetely) from `BaseException`
 
 * Inheriting from `object` allows to omit writing some methods, such as `__init__`, `__str__` etc
@@ -60,7 +62,7 @@
           print(f'c from A: {c}')
           
   class ParentB:
-      b = 'parent A'
+      b = 'parent B'
       def __init__(self, d, e) -> None:
           print(f'd: {d} e: {e}')
           
@@ -116,31 +118,32 @@
         def push_button(self) -> None:
             print('Button pushed, nothing happened')
             
-    class UselessDevice(Super):
+    class UselessDevice(SuperDevice):
         pass
     ```
 
   * Overwriting — child overwrites super method:
     ```python
     class DeskLamp(SuperDevice):
-        def push_button(self,) -> None:
+        def push_button(self) -> None:
             print('Light state switched')
     ```
 
   * Extending — extends super method by calling it directly + adding new code:
     ```python
-    class MonitoringDevice(Super):
-        def push_button(self,) -> None:
+    class MonitoringDevice(SuperDevice):
+        def push_button(self) -> None:
             print('Monitor lights up')
             super().push_button()
             print('Monitor shows nothing')
     ```
 
-  * Composition — not technically inheritance, but can be used when it doesn't make sense to inherit from the class (is a relationship), but to incorporate something from another class:
+  * Composition — not technically inheritance, but can be used when it doesn't make sense to inherit from the class (is a relationship), but to incorporate something from another class[^1]:
     ```python
     class Car:
         def __init__(self) -> None:
-    		self.ac = SuperDevice()
+            self.ac = SuperDevice()
+    
         def turn_ac(self) -> None:
             self.ac.push_button()
     ```
@@ -221,8 +224,9 @@
             pass
     ```
 
-    * This not only prevents calling the `action` or `work` methods, but creating the `SuperDevice` class instances alltogether  since it's now an abstract class
-    * This relies on pretty advanced topic of metaclasses, but in short metaclass is controling the way class is created the same way class controls instances creation
+    * This not only prevents calling the `action` or `work` methods, but creating the `SuperDevice` class instances all together  since it's now an abstract class
+    * Abstract superclass can still be used as parent class for other classes as long as they implement all the abstract methods
+    * This relies on pretty advanced topic of metaclasses, but in short metaclass is controlling the way class is created the same way class controls instances creation
 
 
 ## Name mangling interlude
@@ -281,3 +285,6 @@
 * This is the only valid use for mangling I found/could come up with; except for straight up hiding attributes [^3]
 
 * Good news: you might as well forget about mangling completely now and everything would still be fine in your life.
+
+[^1]: [More on composition and inheretance in general](https://realpython.com/inheritance-composition-python/)
+[^2]: [PEP 563](https://peps.python.org/pep-0563/)
