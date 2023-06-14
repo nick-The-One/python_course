@@ -128,4 +128,7 @@ weakref?
 
 ## Rest
 
+* Exceptions
+* modules
+* Decorators
 * Built-ins cleanup: go through each and every built-in function: https://docs.python.org/3/library/functions.html

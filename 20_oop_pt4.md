@@ -90,7 +90,7 @@ class RichComp:
 
 * `__setitem__` is used in indexed assignment
 
-* `__getitem__` is used as fallback for iteration protocol:iteration context will index values from object one by one until `IndexError` is encountered
+* `__getitem__` is used as fallback for iteration protocol: iteration context will index values from object one by one until `IndexError` is encountered
 
 * But proper way to implement iteration protocol is by implementing `__iter__` method that returns an object that implements  `__next__` method and throws `StopIteration` when appropriate, be it the same object that returns self, or separate object. `__iter__` is given priority over `__getitem__`:
   ```python
@@ -319,7 +319,7 @@ class RichComp:
 
   * Main drawbacks are amount of such functions — one to three need to be defined for each attribute even if they are the same; and the fact that all of these functions has to be redefined in children classes if any of them is redefined: they all parts of the same *descriptor* object and redefining one redefines entire object:
     ```python
-    class PropChild(Prop):
+    class PropChild(PersonProp):
         @property
         def name(self) -> str:
             return self._name.upper()
