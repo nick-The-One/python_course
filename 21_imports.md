@@ -203,7 +203,7 @@
   # current
   from package_a import *
   dir()
-  >>>[..., module_a, module_b, module_c]
+  >>>[...ll ]
   
   # package_a init:
   _all_ = ['module_a', 'module_b']
@@ -285,7 +285,7 @@
 
 * Relative import re-enables local folder lookup for modules in packages, but this time explicitely — thus disabling lookup chain; if relatively imported module is not found in the specified location, import will fail
 
-* Relative import only works with `import from` construction
+* Relative import only works with `from importpython` construction
 
 * Relative import only works in packages, and removes ability to execute file with relative import:
   ```python
@@ -311,12 +311,21 @@
   pip install package_name
   ```
 
+* Pip will install specified package of latest version (unless something else specified) in the `site-packages` and all of its dependencies, where they can be picked up by import mechanism
+
+* One should be aware of where they run it from — virtual environment or just the system, because on this depends in which `site-packages` it will be installed: system or venv one
+
+* Installing packages into system is highly discouraged — it might, or rather it will at some point cause some version clash issue in nth level dependency and it might be very difficult issue to debug and resolve
+
+* So make sure you run virtual environment before using pip — a separate copy of the Python environment that is not available from the outside of it and in this way preventing any package clashes
+
 * In general you shouldn't do it, but rather use some dependency manager, like poetry or… Just use poetry
 
-
+* And for Python tools that are distributed via pip use pipx[^4] — isolated envorinment for tools
 
 
 
 [^1]: [Python Library Reference](https://docs.python.org/3/library)
 [^2]: [Recommended 3rd paty modules: PEP](https://peps.python.org/pep-0206/)
 [^3]: [Namespace packages](https://realpython.com/python-namespace-package/)
+[^4]: [Pipx](https://pypa.github.io/pipx/)
