@@ -103,7 +103,6 @@
       handle_final()  # will be executed regardless 
   ```
   
-
 * Exception in Python 3 is a class, and one can define own exception classes by inheriting from `Exception` or one of its children — not diving deep into details for now, this is pretty niche feature, but it's nice to define specialized exceptions for your domain, even without special logic just to give more precise errors
 
 * Since exceptions are classes, raised exception creates and instance of exception object that can be caught with `as` contruction:
@@ -162,7 +161,220 @@
       raise AssertionError
   ```
 
+## Decorators
 
+* Decorator is a way to run custom code right after function or class definition — code, that will alter or enhance the way defined object behaves
+
+* This is done by binding function/class name to a decorator code — so every time function is called or instance is created, not original, but rather custom object is called and original object is passed as an argument
+
+* Decorator itself is and higher-order function — we met them before: it's a function that takes as argument and returns a function instead of regular values
+
+* And being a higher-order function, decorator can modify function/class behaviour without modifying its code
+
+* Sicne decorator has to return a function and it can't return directly received function (that would be pointless), wrapper function is expected to be defined inside the decorator and it will be returned from it
+
+* Best way to understand it is to write one:
+  ```python
+  from typing import Callable
+  
+  def decorator_func(f: Callable[..., Any]) -> Callable[..., Any]:
+      def wrapper() -> None:
+          print("I'm the function now")  # guess the last name of the captain
+          f()
+          print("It's over")
+      return wrapper
+  
+  
+  def func() -> None:
+      print('OG function')   
+  ```
+
+* To decorate the function it needs to be passed to the decorator function:
+  ```python
+  func()
+  >>>OG function
+  
+  func = decorator_func(func)
+  func()
+  >>>I'm the function now
+  >>>OG function
+  >>>It's over
+  ```
+
+* Of course there's syntax sugar available for decorators by using `@decorator` statement before decorated function definition — and this is one thing that makes it even more powerful by making it highly noticable in the code, and this way somewhat improving readability over reassigning names as in example above:
+  ```python
+  @decorator_func
+  def func() -> None:
+      print('OG function')  
+  ```
+
+* Now if we try to decorate function that receives any arguments with this decorator, nothing particularly good will happen:
+  ```python
+  @decorator_func
+  def func_b(i: int) -> None:
+      print(f'OG function: {i}')
+      
+  func_b(12)
+  >>>TypeError: decorator_func.<locals>.wrapper() takes 0 positional arguments but 1 was given
+  ```
+
+* This happens because decorated `func_b` is not actually `func_b`, but rather `wrapper`, which does not take any arguments
+
+* This is an easy fix:
+  ```python
+  def decorator_func(f: Callable[..., Any]) -> Callable[..., Any]:
+      def wrapper(*args, **kwargs) -> None:
+          print("I'm the function now")  # guess the last name of the captain
+          f(*args, **kwargs)
+          print("It's over")
+      return wrapper
+  
+  @decorator_func
+  def func_b(i: int) -> None:
+      print(f'OG function: {i}')
+      
+  func_b(12)
+  >>>I'm the function now
+  >>>OG function: 12
+  >>>It's over
+  ```
+
+* Returning values from decorated function is also has to be handled explicitely:
+  ```python
+  def decorator_func(f: Callable[..., Any]) -> Callable[..., Any]:
+      def wrapper(*args, **kwargs) -> None:
+          print("I'm the function now")  # guess the last name of the captain
+          ret = f(*args, **kwargs)
+          print("It's over")
+          return ret
+      return wrapper
+  
+  @decorator_func
+  def func_c(i: int) -> int:
+      return i + 22
+  
+  func_c(12)
+  >>>I'm the function now
+  >>>It's over
+  >>>34
+  ```
+
+* Note that all of the wrapper logic is executed before return, since no code after it will be executed in wrapper function
+
+* Wrapper can also can be a class with overloaded `__call__` method since decorator will be called on every decorated function call
+  ```python
+  class DecoratorClass:
+      def __init__(self, func: Callable[..., Any]) -> None:
+          self.func = func
+          
+      def __call__(self, *args, **kwargs):
+          print('wrapped func call')
+          return self.func(*args, **kwargs)
+      
+  @DecoratorClass
+  def func_c(i: int) -> int:
+      return i + 22
+  ```
+
+* Obviously one can decorate class methods just like any other function
+
+* But it is also possible to decorate entire class — in this case decorator will be called on every new instance creation instead of function calls, and class (not instance!) will be passed to wrapper
+
+* Best example would be implemetation of singleton pattern — ability to create only one instance of the class, and with every subsequent creation original instance will be returned
+  ```python
+  def singleton(cls):
+      def wrapper(*args, **kwargs):
+          if not wrapper.instance:
+              wrapper.instance = cls(*args, **kwargs)
+          return wrapper.instance
+      wrapper.instance = None  # new attribute assigned to the wrapper function after it was defined
+      return wrapper
+  
+  @singleton
+  class TestClass:
+      pass
+  
+  t1 = TestClass()
+  t2 = TestClass()
+  
+  id(t1) == id(t2)
+  >>>True
+  ```
+
+* Decoration will overwrite function/class metadata:
+  ```python
+  def func_c(i: int) -> int:
+      return i + 22
+  
+  func_c.__name__
+  >>>'func_c'
+  
+  @decorator_func
+  def func_c(i: int) -> int:
+      return i + 22
+  
+  func_c.__name__
+  >>>'wrapper'
+  ```
+
+* To fix that for whatever reason ironically another decorator can be used:
+  ```python
+  from functools import wraps
+  
+  def decorator_func(f: Callable[..., Any]) -> Callable[..., Any]:
+      @wraps(f)
+      def wrapper(*args, **kwargs) -> None:
+          print("I'm the function now")  # guess the last name of the captain
+          ret = f(*args, **kwargs)
+          print("It's over")
+          return ret
+      return wrapper
+  
+  @decorator_func
+  def func_c(i: int) -> int:
+      return i + 22
+  
+  func_c.__name__
+  >>>'func_c'
+  ```
+
+* Several decorators can be used at once — they will call each other nested from bottom to top:
+  ```python
+  @dec_a
+  @dec_b
+  @dec_c
+  def func_d() -> None:
+      pass
+  
+  # same as
+  dec_a(dec_b(dec_c(func_d)))
+  ```
+
+* Decorator can accept arguments itself, in that case it will be called and decorated object will be passed to the returned object — thus we need another layer in the decorator code to handle that:
+  ```python
+  def decorator_func(s: str) -> Callable[..., Any]:
+      def outer_wrapper(f: Callable[..., Any]) -> Callable[..., Any]:
+          def wrapper(*args, **kwargs) -> None:
+              print(f"I'm the function now, custom text: {s}")  # guess the last name of the captain
+              ret = f(*args, **kwargs)
+              print("It's over")
+              return ret
+          return wrapper
+      return outer_wrapper
+  
+  @decorator_func
+  def func_c(i: int) -> int:
+      return i + 22
+  
+  func_c(12)
+  >>>I'm the function now, custom text: heyo
+  >>>It's over
+  >>>34
+  ```
+
+* [More on decorators](https://realpython.com/primer-on-python-decorators)
+
+  
 
 [^1]: [Exception types](https://docs.python.org/3/library/exceptions.html#Exception)
 
