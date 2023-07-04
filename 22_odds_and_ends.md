@@ -362,7 +362,7 @@
           return wrapper
       return outer_wrapper
   
-  @decorator_func
+  @decorator_func('heyo')
   def func_c(i: int) -> int:
       return i + 22
   
@@ -374,7 +374,83 @@
 
 * [More on decorators](https://realpython.com/primer-on-python-decorators)
 
+## Unit tests basics
+
+* Unit test — tests minimal pieces of code independetly
+
+* Why unit tests? — instant feedback
+
+* What makes a good unit test?
+
+  * Simple
+  * Readable
+  * Deterministic
+  * Fast to run (or force it!)
+  * Unit only
+  * Should run locally, mock EVERYTHING — you only need you're testing logic, not connections: input -> processing -> output
+
+* Simples way to test something is to use `assert`:
+  ```python
+  def inc_func(a: int) -> int:
+      return a + 1
   
+  assert inc_func(2) == 3
+  ```
+
+* But more proper way would be using built-in unit-test solution, that gives you ability to get more granular information on which tests passed and which are failed – `unittest`
+
+* To write tests using `unittest` one need to write a class, inherited from `unittest.TestCase` and define in it methods with names that start with `test` — they will be run on `unittest` test run
+
+* There are special methods that will be called in different points in time — before and after tests or even class creation, such as `setup` and `teardown`[^2]
+
+* All assertion in such test cases are done using special methods, and not regular assertion — they still can be used, but special methods have more informative output, especially with ability to pass messages to it:
+  ```python
+  import unittest
+  
+  def inc_func(a: int) -> int:
+      return a + 1
+  
+  class TestInc(unittest.TestCase):
+      def test_inc_method(self) -> None:
+          self.assertEqual(inc_func(2), 4)
+  
+      def test_inc_assert(self) -> None:
+          assert inc_func(2) == 4
+  
+          
+  >>>FAIL: test_inc_method (utest.TestInc)
+  ----------------------------------------------------------------------
+  Traceback (most recent call last):
+    File "/Users/noni1001/Projects/PLC/test_demo/tests/utest.py", line 8, in test_inc_method
+      self.assertEqual(inc_func(2), 4)
+  AssertionError: 3 != 4
+  
+  
+  >>>FAIL: test_inc_assert (utest.TestInc)
+  ----------------------------------------------------------------------
+  Traceback (most recent call last):
+    File "/Users/noni1001/Projects/PLC/test_demo/tests/utest.py", line 11, in test_inc_assert
+      assert inc_func(3) == 3
+  AssertionError
+  ```
+
+* There are a pretty sizeable number of available assertion methods[^3] for all kinds of testing, including expected exception
+
+* To run tests via `unittest` following command may be used:
+  ```python
+  python -m unittest -v path/to/test_file
+  ```
+
+* To emulate expensive/remote/unpredictable calls, mocking can be used — replacing these calls with objects with predetermined returns or logic to catch calls to it[^4]
+
+* In ML team we are mostly using `pytest` instead, which works slightly different — it does not require base class, or any class for that matter: each test case should be single function with name starting with `test_`; regular `assert` is used
+
+* It also provides tools for expected exceptions, fails, skips, parametrization of test cases with fixtures (predetermined params), mocking and even can run `unittest` tests with slightly prettier output
+
+
 
 [^1]: [Exception types](https://docs.python.org/3/library/exceptions.html#Exception)
 
+[^2]: [Additional test methods](https://docs.python.org/3/library/unittest.html#unittest.TestCase.setUp)
+[^3]: [Assertion methods](https://docs.python.org/3/library/unittest.html#unittest.TestCase.debug)
+[^4]: [Mock library](https://realpython.com/python-mock-library/)

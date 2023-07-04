@@ -140,3 +140,5 @@ weakref?
 Tests
 Decorator
 Pet project
+
+https://goodfirstissue.dev/language/python
